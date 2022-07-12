@@ -107,7 +107,7 @@ public class ProductServlet extends HttpServlet {
 		String idStr = request.getParameter("id");
 		try {
 			
-			Product newValue = new Product();
+			Product newValue = new ProductDAO().findById(Integer.parseInt(idStr));
 			BeanUtils.populate(newValue, request.getParameterMap());
 			this.proDao.update(newValue);
 			session.setAttribute("message", "update success");

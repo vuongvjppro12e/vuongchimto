@@ -12,6 +12,7 @@
 </c:if>
 <c:if test="${!empty sessionScope.message }">
 	<div class="alert alert-success">${sessionScope.message }</div>
+	<c:remove var="message" scope="session" />
 </c:if>
 <c:if test="${ empty ds }">
 	<p class="alert alert-warning">Không có dữ liệu</p>

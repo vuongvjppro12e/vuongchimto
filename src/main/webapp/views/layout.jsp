@@ -22,7 +22,6 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             USER
           </a>
-          
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="/Assignment/users/index">List User</a></li>
             <li><a class="dropdown-item" href="/Assignment/users/create">Add user</a></li>

@@ -77,16 +77,29 @@ import utils.EncryptUtil;
 			User entity = new User();
 			BeanUtils.populate(entity,
 				request.getParameterMap());
-			String encrypted = EncryptUtil.encrypt(
-				request.getParameter("password")
-			);
-			entity.setPassword(encrypted);
-			this.userDAO.create(entity);
 			
-			session.setAttribute("message",
-				"Thêm mới thành công");
-			response.sendRedirect("/Assignment"
-				+ "/users/index");
+			
+			if (entity.getHoTen().isEmpty()
+				|| entity.getSdt().isEmpty()
+				|| entity.getEmail().isEmpty()
+				|| entity.getDiaChi().isEmpty()
+				||entity.getPassword().isEmpty()
+				) {
+				session.setAttribute("error",
+						"thêm mới không thành công: điền đầy đủ ô");
+					response.sendRedirect("/Assignment"
+						+ "/users/index");
+			}else {
+				String encrypted = EncryptUtil.encrypt(
+						request.getParameter("password")
+					);
+					entity.setPassword(encrypted);
+				this.userDAO.create(entity);
+				session.setAttribute("message",
+					"Thêm mới thành công");
+				response.sendRedirect("/Assignment"
+					+ "/users/index");
+			}
 		} catch (Exception e) {
 			session.setAttribute("error", "add fail");
 			e.printStackTrace();

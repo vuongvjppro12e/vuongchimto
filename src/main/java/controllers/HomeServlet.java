@@ -16,7 +16,7 @@ public class HomeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     public HomeServlet() {
-        super();
+        super(); 
     }
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -29,7 +29,7 @@ public class HomeServlet extends HttpServlet {
 		}else if (uri.contains("/dangXuat")) {
 			this.dangXuat(request, response);
 		}
-		
+		 
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
